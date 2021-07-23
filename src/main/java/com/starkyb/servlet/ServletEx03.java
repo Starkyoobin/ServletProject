@@ -14,14 +14,18 @@ public class ServletEx03 extends HttpServlet{
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		response.setCharacterEncoding("utf-8");
-		response.setContentType("text/html");
+		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
 		
 		String id = request.getParameter("user_id");
 		String name = request.getParameter("name");
 		int age = Integer.parseInt(request.getParameter("age"));
 		
-		out.println("<html><head><title>get 파마미터 확인</title></head>");
-		out.println("<body><h3>" + id + " : " + name + " - " + age + "</h3></body></html>");
+//		out.println("<html><head><title>get 파마미터 확인</title></head>");
+//		out.println("<body><h3>" + id + " : " + name + " - " + age + "</h3></body></html>");
+		
+		//?user_id=starkyb&name="김유빈"&age=21
+		//{"user_id":"starkyb", "name":"김유빈", "age":21}
+		out.println("{\"user_id\":\"" + id + "\", \"name\":\"" + name + "\", \"age\":" + age + "}");
 	}
 }
