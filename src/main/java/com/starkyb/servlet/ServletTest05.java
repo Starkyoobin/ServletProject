@@ -17,11 +17,11 @@ public class ServletTest05 extends HttpServlet{
 		
 		int number = Integer.parseInt(request.getParameter("number"));
 		out.println("<html><head><title>Get Method와 HTML</title></head>");
-		out.println("<body>");
+		out.println("<body><ul>");
 		for(int i = 1; i <= 9; i++) {
-			out.println(number + " X " + i + " = " + (number * i));
+			out.println("<li>" + number + " X " + i + " = " + (number * i) + "</li>");
 			out.println("<br>");
 		}
-		out.println("</body></html>");
+		out.println("</ul></body></html>");
 	}
 }
