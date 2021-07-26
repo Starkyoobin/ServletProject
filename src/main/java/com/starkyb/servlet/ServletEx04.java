@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 // /servlet/ex04?user_id=starkyb&name=김유빈&birth=20010626&email=yb010626@gmail.com
 @WebServlet("/servlet/ex04")
-public class SevletEx04 extends HttpServlet{
+public class ServletEx04 extends HttpServlet{
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		response.setCharacterEncoding("utf-8");
