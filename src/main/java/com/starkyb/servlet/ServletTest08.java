@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
@@ -29,11 +30,15 @@ public class ServletTest08 extends HttpServlet{
 		
 		out.println("<html><head><title>form 연습문제 2</title></head>");
 		out.println("<body>");
-		for(int i = 0; i < list.size(); i++) {
-			if(list.get(i).contains(search)) {
-				out.println(list.get(i));
-				out.println("<hr>");
+		Iterator<String> iter = list.iterator();
+		while(iter.hasNext()) {
+			String string = iter.next();
+			
+			if(string.contains(search)) {
+				string = string.replace(search, "<b>" + search + "</b>");
+				out.println(string + "<hr>");
 			}
 		}
+		out.println("</body></html>");
 	}
 }

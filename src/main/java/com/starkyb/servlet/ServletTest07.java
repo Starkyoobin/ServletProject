@@ -20,17 +20,17 @@ public class ServletTest07 extends HttpServlet{
 		String card = request.getParameter("card");
 		int price = Integer.parseInt(request.getParameter("price"));
 		
+		out.println("<html><head><title>form 연습문제 1</title></head>");
 		if(!address.contains("서울시")) {
-			out.println("배달 불가 지역입니다.");
+			out.println("<h2>배달 불가 지역입니다.</h2>");
 		} else if(card.equals("신한카드")) {
-			out.println("결제 불가 카드입니다.");
+			out.println("<h2>결제 불가 카드입니다.</h2>");
 		}  else {
-			out.println("<html><head><title>form 연습문제 1</title></head>");
 			out.println("<body><h3>" + address + " 배달 준비중</h3>");
 			out.println("<hr>");
 			out.println("<div> 결제금액 : " + price + "</div>");
-			out.println("</body></html>");			
 		}
+		out.println("</body></html>");			
 		
 	}
 }
