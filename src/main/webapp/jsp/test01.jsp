@@ -17,29 +17,34 @@
 		}
 		double average = sum / scores.length;
 	%>
-	<span>1. 평균 : <%=average %></span> <br>
+	<h1>1. 평균 : <%=average %></h1> <br>
 	
 	<%
 		List<String> scoreList = Arrays.asList(new String[]{"X", "O", "O", "O", "X", "O", "O", "O", "X", "O"});
 		sum = 100;
-		for(int i = 0; i < scoreList.size(); i++) {
-			if(scoreList.get(i).equals("X")) {
+		//for(int i = 0; i < scoreList.size(); i++) {
+		//	if(scoreList.get(i).equals("X")) {
+		//		sum -= 10;
+		//	}
+		//}
+		for(String check:scoreList) {
+			if(check.equals("X")) {
 				sum -= 10;
 			}
 		}
 	%>
-	<span>2. 총점 : <%=sum %></span> <br>
+	<h1>2. 총점 : <%=sum %></h1> <br>
 	
 	<%!
-		private int total = 0;
 		public int calculateNumber(int number) {
+			int total = 0;
 			for(int i = 1; i <= number; i++) {
 				total += i;
 			}
 			return total;
 		}
 	%>
-	<span>3. 1부터 n까지의 합 : <%=calculateNumber(50) %></span> <br>
+	<h1>3. 1부터 n까지의 합 : <%=calculateNumber(50) %></h1> <br>
 	
 	<%!
 		String birthDay = "20010820";
@@ -49,6 +54,6 @@
 			return currentYear - birthYear + 1;
 		}
 	%>
-	<span>4. 나이 : <%=getAge() %></span>
+	<h1>4. 나이 : <%=getAge() %></h1>
 </body>
 </html>
