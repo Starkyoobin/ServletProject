@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Post method form태그 결과</title>
 </head>
 <body>
 	<%
