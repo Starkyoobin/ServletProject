@@ -24,23 +24,27 @@
 			<h1>장 목록</h1>
 		</header>
 		<div>
-			<table border=0 width=1200px class="text-center">
-				<tr class="border-bottom border-top">
-					<th class="col-4">번호</th>
-					<th class="col-8">품목</th>
-				</tr>
-					<%	
-						int number = 0;
-						Iterator<String> iter = goodsList.iterator();
-						while(iter.hasNext()) {
-							String goods = iter.next();
-							number++;
-					%>
-				<tr class=border-bottom>
-					<td><%=number %></td>
-					<td><%=goods %></td>
-				</tr>
-				<% } %>
+			<table class="table text-center">
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>품목</th>
+					</tr>				
+				</thead>
+				<tbody>
+				<%	
+					int number = 0;
+					Iterator<String> iter = goodsList.iterator();
+					while(iter.hasNext()) {
+						String goods = iter.next();
+						number++;
+				%>
+					<tr>
+						<td><%=number %></td>
+						<td><%=goods %></td>
+					</tr>
+				<% } %>			
+				</tbody>
 			</table>		
 		</div>
 	</div>
