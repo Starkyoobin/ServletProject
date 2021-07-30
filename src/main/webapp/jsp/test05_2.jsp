@@ -8,29 +8,40 @@
 </head>
 <body>
 	<%
-		String inputLength = request.getParameter("inputLength");
-		double number = Integer.parseInt(inputLength);
-		String[] lengthUnits = request.getParameterValues("length");
-		
-		for(int i = 0; i < lengthUnits.length; i++) {
-			if(lengthUnits[i].equals("inch")) {
-				number = number * 0.393701;
-			}
-			if(lengthUnits[i].equals("yard")) {
-				number = number * 0.0109361;
-			}
-			if(lengthUnits[i].equals("feet")) {
-				number = number * 0.0328084;
-			}
-			if(lengthUnits[i].equals("yard")) {
-				number = number * 0.01;
-			}
-		}
+		String length = request.getParameter("length");
+		double centimeter = Integer.parseInt(length);
+		String[] types = request.getParameterValues("type");
 	%>
 	<h1>변환 결과</h1>
 	<div>
-		<%=inputLength %> cm <hr>
-		<%=number %>
+		<h3><%=centimeter %> cm</h3><hr>
 	</div>
+	<%	
+		for(int i = 0; i < types.length; i++) {
+			String type = types[i];
+			
+			if(type.equals("inch")) {
+				double inch = centimeter * 0.39;
+			%>
+				<h3><%=inch %> in</h3> <br>
+			<%
+			} else if(type.equals("yard")) {
+				double yard = centimeter * 0.010936133;			
+			%>
+				<h3><%=yard %> yd</h3> <br>
+			<%
+			} else if(type.equals("feet")) {
+				double feet = centimeter * 0.032808399;			
+			%>
+				<h3><%=feet %> ft</h3> <br>
+			<%
+			} else if(type.equals("meter")) {
+				double meter = centimeter / 100.0;			
+			%>
+				<h3><%=meter %> m</h3> <br>
+			<%
+			}
+		}			
+	%>
 </body>
 </html>

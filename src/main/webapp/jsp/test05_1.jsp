@@ -13,15 +13,16 @@
 <body>
 	<div class="container">
 		<h1>길이 변환</h1>
-		<form action="/jsp/test05_2.jsp">
+		<form action="/jsp/test05_2.jsp" method="post">
 			<div class="d-flex">
-				<input type="text" name="inputLength" class="form-control">cm		
+				<input type="text" name="length" class="form-control col-3">cm		
 			</div>
-			<label>인치<input type="checkbox" name="length" value="inch"> </label>
-			<label>야드<input type="checkbox" name="length" value="yard"> </label>
-			<label>피트<input type="checkbox" name="length" value="feet"> </label>
-			<label>미터<input type="checkbox" name="length" value="meter"> </label> <br>
-			
+			<div>
+				<label>인치<input type="checkbox" name="type" value="inch"> </label>
+				<label>야드<input type="checkbox" name="type" value="yard"> </label>
+				<label>피트<input type="checkbox" name="type" value="feet"> </label>
+				<label>미터<input type="checkbox" name="type" value="meter"> </label> <br>
+			</div>
 			<button type="submit" class="btn btn-success">변환</button>
 		</form>
 	</div>
