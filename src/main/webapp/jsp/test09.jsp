@@ -18,12 +18,13 @@
 		<%
 			Calendar today = Calendar.getInstance();
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 M월 d일");
+			today.add(Calendar.DATE, 99);
 			for(int i = 0; i < 10; i++) {
-				today.add(Calendar.DATE, 100);
 				String date = formatter.format(today.getTime());				
 		%>
 		<h3><%=(i + 1) * 100 %>일 : <span class="text-danger"><%=date %></span></h3>
 			<%
+				today.add(Calendar.DATE, 100);
 			}
 			%>
 	</div>
