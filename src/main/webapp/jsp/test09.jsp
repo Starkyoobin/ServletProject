@@ -16,9 +16,9 @@
 	<div class="container">
 		<h1>오늘부터 1일</h1>
 		<%
+			Calendar today = Calendar.getInstance();
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 M월 d일");
 			for(int i = 0; i < 10; i++) {
-				Calendar today = Calendar.getInstance();
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 M월 d일");
 				today.add(Calendar.DATE, 100);
 				String date = formatter.format(today.getTime());				
 		%>
