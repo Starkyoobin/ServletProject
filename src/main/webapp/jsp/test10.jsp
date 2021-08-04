@@ -14,9 +14,9 @@
 </head>
 <body>
 	<%
-		Calendar thisMonth = Calendar.getInstance();
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM");
-		String month = formatter.format(thisMonth.getTime());
+		Calendar today = Calendar.getInstance();
+		SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM");
+		String month = formatter1.format(today.getTime());
 	%>
 	<div class="container">
 		<header class="text-center"><h1><%=month %></h1></header>
@@ -34,6 +34,8 @@
 			</thead>
 			<tbody>
 				<tr>
+					
+				</tr>
 			</tbody>
 		</table>
 	</div>
