@@ -84,6 +84,14 @@
 							<td><%=channelInfo.get("category") %></td>
 						</tr>
 						<%
+							    	} else if(category.equals("all")) {
+							    		%>
+							    		<tr>
+											<td><%=channelInfo.get("ch") %></td>
+											<td><%=channelInfo.get("name") %></td>
+											<td><%=channelInfo.get("category") %></td>
+										</tr>
+										<%
 							    	}
 							    }
 						%>
