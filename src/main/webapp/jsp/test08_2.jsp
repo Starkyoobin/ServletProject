@@ -66,7 +66,6 @@
 	<div class="container">
 		<div class="d-flex">
 		<%
-			Map<String, Object> target = null;
 		    for(Map<String, Object> item : list) {
 		    	if(bookID == (Integer)item.get("id")) {
 					
