@@ -19,14 +19,13 @@ public class DatabaseTest01 extends HttpServlet{
 		response.setContentType("text/plain");
 		PrintWriter out = response.getWriter();
 		
-		MysqlService mysqlService = new MysqlService();
+		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
 		
-		String insertQuery = "INSERT INTO `real_estate`\r\n"
-				+ "(`realtorId`, `address`, `area`, `type`, `price`, `rentPrice`, `createdAt`, `updatedAt`)\r\n"
-				+ "VALUE (3, '헤라펠리스 101동 5305호', 350, '매매', 1500000, null, now(), now());";
-		
-		int count = mysqlService.update(insertQuery);
+//		String insertQuery = "INSERT INTO `real_estate`\r\n"
+//				+ "(`realtorId`, `address`, `area`, `type`, `price`, `rentPrice`, `createdAt`, `updatedAt`)\r\n"
+//				+ "VALUE (3, '헤라펠리스 101동 5305호', 350, '매매', 1500000, null, now(), now());";
+//		int count = mysqlService.update(insertQuery);
 //		out.println(count);
 		
 		String selectQuery = "SELECT * FROM `real_estate`\r\n"
