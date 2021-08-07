@@ -14,13 +14,22 @@
 </head>
 <body>
 	<%
-		Calendar today = Calendar.getInstance();
-		SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM");
-		String month = formatter1.format(today.getTime());
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, 2021);
+		cal.set(Calendar.MONTH, 3);
+		cal.set(Calendar.DATE, 1);
+		int year = cal.get(Calendar.YEAR);
+		int month = cal.get(Calendar.MONTH);
+		int startDate = cal.get(Calendar.DATE);
+		int startDayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+		int lastDay = cal.getActualMaximum(Calendar.DATE);
+		
+		cal.set(Calendar.DATE, lastDay);
+		int lastWeek = cal.get(Calendar.WEEK_OF_MONTH);
 	%>
 	<div class="container">
-		<header class="text-center"><h1><%=month %></h1></header>
-		<table class="table">
+		<header class="text-center"><h1><%=year %>-<%=month %></h1></header>
+		<table class="table text-center">
 			<thead>
 				<tr>
 					<th class="text-danger">일</th>
@@ -33,6 +42,9 @@
 				</tr>
 			</thead>
 			<tbody>
+				<%
+					
+				%>
 				<tr>
 					
 				</tr>

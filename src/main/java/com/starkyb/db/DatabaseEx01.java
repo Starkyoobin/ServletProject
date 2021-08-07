@@ -33,7 +33,7 @@ public class DatabaseEx01 extends HttpServlet{
 //		
 //		out.println("삽입성공!! " + count);
 		
-		String selectQuery = "SELECT * FROM used_goods";
+		String selectQuery = "SELECT * FROM `used_good`";
 		ResultSet result = mysqlService.select(selectQuery);
 		
 		try {
