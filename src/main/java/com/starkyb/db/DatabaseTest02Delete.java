@@ -17,14 +17,14 @@ public class DatabaseTest02Delete extends HttpServlet{
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
-		String name = request.getParameter("name");
+		String id = request.getParameter("id");
 		
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
 		
-		String deleteQuery = "DELETE FROM `web` WHERE `name` = " + name;
-		int count = mysqlService.update(deleteQuery);
+		String deleteQuery = "DELETE FROM `web` WHERE `id` = " + id;
+		mysqlService.update(deleteQuery);
 		
-		out.println("삭제성공 " + count);
+		response.sendRedirect("http://localhost:8080/db/test02_1.jsp");
 	}
 }

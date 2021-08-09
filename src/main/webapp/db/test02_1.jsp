@@ -37,7 +37,7 @@
 				<tr>
 					<td><%=result.getString("name") %></td>
 					<td><a href="<%=result.getString("url") %>"><%=result.getString("url") %></a></td>
-					<td><a href="/db/test02_delete?name=<%=result.getString("name") %>">삭제</a></td>
+					<td><a href="/db/test02_delete?id=<%=result.getInt("id") %>">삭제</a></td>
 				</tr>
 				<%
 					}
