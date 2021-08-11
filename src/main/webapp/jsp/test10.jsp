@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -14,21 +15,23 @@
 </head>
 <body>
 	<%
-		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.YEAR, 2021);
-		cal.set(Calendar.MONTH, 3);
-		cal.set(Calendar.DATE, 1);
-		int year = cal.get(Calendar.YEAR);
-		int month = cal.get(Calendar.MONTH);
-		int startDate = cal.get(Calendar.DATE);
-		int startDayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
-		int lastDay = cal.getActualMaximum(Calendar.DATE);
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM");
 		
-		cal.set(Calendar.DATE, lastDay);
-		int lastWeek = cal.get(Calendar.WEEK_OF_MONTH);
+		String monthString = "2021-03";
+		
+		Date date = formatter.parse(monthString);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		
+		int dayNum = calendar.get(Calendar.DAY_OF_WEEK);		
+		int day = (dayNum - 1) * -1 + 1;
+		int maxDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
 	%>
 	<div class="container">
-		<header class="text-center"><h1><%=year %>-<%=month %></h1></header>
+		<header class="text-center"><h1><%=monthString %></h1></header>
+		<%=dayNum %> <br>
+		<%=day %> <br>
+		<%=maxDay %> <br>
 		<table class="table text-center">
 			<thead>
 				<tr>
@@ -43,11 +46,28 @@
 			</thead>
 			<tbody>
 				<%
-					
+					for(int i = 0; i < 6; i++) {
+						out.println("<tr class=\"display-4\">");
+						for(int j = 0; j < 7; j++) {
+							out.println("<td>");
+							
+							if(day > 0) {
+								out.print(day);
+							}
+							out.println("</td>");
+							day++;
+							
+							if(day > maxDay) {
+								break;
+							}
+						}
+						out.println("</tr>");
+						
+						if(day > maxDay) {
+							break;
+						}
+					}
 				%>
-				<tr>
-					
-				</tr>
 			</tbody>
 		</table>
 	</div>

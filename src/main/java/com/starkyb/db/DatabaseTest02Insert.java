@@ -29,6 +29,8 @@ public class DatabaseTest02Insert extends HttpServlet{
 				+ "('" + name + "', '" + url + "', now(), now());";
 		mysqlService.update(insertQuery);
 		
-		response.sendRedirect("http://localhost:8080/db/test02_1.jsp");
+		mysqlService.disconnect();
+		
+		response.sendRedirect("/db/test02_1.jsp");
 	}
 }

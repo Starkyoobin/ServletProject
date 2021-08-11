@@ -14,8 +14,8 @@ import com.starkyb.common.MysqlService;
 public class DatabaseTest02Delete extends HttpServlet{
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
+//		response.setContentType("text/html");
+//		PrintWriter out = response.getWriter();
 		
 		String id = request.getParameter("id");
 		
@@ -25,6 +25,8 @@ public class DatabaseTest02Delete extends HttpServlet{
 		String deleteQuery = "DELETE FROM `web` WHERE `id` = " + id;
 		mysqlService.update(deleteQuery);
 		
-		response.sendRedirect("http://localhost:8080/db/test02_1.jsp");
+		mysqlService.disconnect();
+		
+		response.sendRedirect("/db/test02_1.jsp");
 	}
 }
